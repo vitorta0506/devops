@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backuser
+  labels:
+    app: backuser
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: backuser
+  template:
+    metadata:
+      labels:
+        app: backuser
+    spec:
+      containers:
+      - name: frontend
+        image: vitorta/backuser:2
+        env:
+        - name: NODE_ENV
+          value: "staging"
+        - name: MONGO_URI
+          value: "mongodb+srv://user01:vitor050687@labdevops.f5qdv.mongodb.net/<dbname>?retryWrites=true&w=majority"
+        - name: SECRET_OR_KEY
+          value: "quest123"
+        ports:
+        - containerPort: 3020
