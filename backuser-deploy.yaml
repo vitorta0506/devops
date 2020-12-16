@@ -15,7 +15,7 @@ spec:
         app: backuser
     spec:
       containers:
-      - name: frontend
+      - name: backuser
         image: vitorta/backuser:2
         env:
         - name: NODE_ENV
