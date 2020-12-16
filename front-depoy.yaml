@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: vitorta/frontend:1
+        image: vitorta/frontend:1-staging
         ports:
         - containerPort: 80
