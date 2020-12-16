@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: backscm
-        image: vitorta/backscm:1
+        image: vitorta/backscm:2
         env:
         - name: NODE_ENV
           value: "staging"
