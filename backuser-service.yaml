@@ -3,6 +3,7 @@ kind: Service
 metadata:
   name: backuser
 spec:
+  type: NodePort
   selector:
     app: backuser
   ports:
