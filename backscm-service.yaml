@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: backscm
+spec:
+  type: NodePort
+  selector:
+    app: backscm
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 3030
