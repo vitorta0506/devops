@@ -19,7 +19,10 @@ spec:
         image: vitorta/backuser:2
         env:
         - name: NODE_ENV
-          value: "staging"
+          valueFrom:
+            configMapKeyRef:
+              name: questcode
+              key: NODE_ENV        
         - name: MONGO_URI
           value: "mongodb+srv://user01:vitor050687@labdevops.f5qdv.mongodb.net/<dbname>?retryWrites=true&w=majority"
         - name: SECRET_OR_KEY
