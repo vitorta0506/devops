@@ -29,8 +29,14 @@ spec:
               name: questcode
               key: GITHUB_CLIENT_ID
         - name: GITHUB_CLIENT_SECRET
-          value: "dd9e69e2a2846fb01ce109ae06d1c961fc902e93"
+          valueFrom:
+            secretKeyRef:
+              name: questcode
+              key: GITHUB_CLIENT_SECRET
         - name: SECRET_OR_KEY
-          value: "quest123"  
+          valueFrom:
+            secretKeyRef:
+              name: questcode
+              key: SECRET_OR_KEY       
         ports:
         - containerPort: 3030

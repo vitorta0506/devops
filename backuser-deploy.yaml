@@ -24,8 +24,14 @@ spec:
               name: questcode
               key: NODE_ENV        
         - name: MONGO_URI
-          value: "mongodb+srv://user01:vitor050687@labdevops.f5qdv.mongodb.net/<dbname>?retryWrites=true&w=majority"
+          valueFrom:
+            secretKeyRef:
+              name: questcode
+              key: MONGO_URI
         - name: SECRET_OR_KEY
-          value: "quest123"
+          valueFrom:
+            secretKeyRef:
+              name: questcode
+              key: SECRET_OR_KEY        
         ports:
         - containerPort: 3020
