@@ -1,12 +1,6 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  annotations:
-    meta.helm.sh/release-name: jenkins
-    meta.helm.sh/release-namespace: devops
-  creationTimestamp: "2020-12-29T00:43:45Z"
-  finalizers:
-  - kubernetes.io/pvc-protection
   labels:
     app.kubernetes.io/component: jenkins-controller
     app.kubernetes.io/instance: jenkins
@@ -15,8 +9,6 @@ metadata:
     helm.sh/chart: jenkins-3.0.12
   name: jenkins
   namespace: devops
-  resourceVersion: "921205"
-  uid: 5810fda1-6e14-4764-8b83-dff6a574c470
 spec:
   storageClassName: manual-for-jenkins
   accessModes:
