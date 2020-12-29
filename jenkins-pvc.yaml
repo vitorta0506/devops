@@ -1,41 +1,14 @@
-kind: PersistentVolume
 apiVersion: v1
+kind: PersistentVolume
 metadata:
-  name: jenkins
-  labels:
-    type: local
-    app.kubernetes.io/component: jenkins-controller
-    app.kubernetes.io/instance: jenkins
-    app.kubernetes.io/managed-by: Helm
-    app.kubernetes.io/name: jenkins
-    meta.helm.sh/release-name: jenkins    
-    helm.sh/chart: jenkins-3.0.12
+  name: jenkins-pv
+  namespace: jenkins-project
 spec:
-  storageClassName: manual-for-jenkins
+  storageClassName: jenkins-pv
+  accessModes:
+    - ReadWriteOnce
   capacity:
     storage: 1Gi
-  accessModes:
-    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
   hostPath:
-    path: "/mnt/data-jenkins"
----
-
-kind: PersistentVolumeClaim
-apiVersion: v1
-metadata:
-  name: jenkins
-  namespace: devops
-  labels:
-    app.kubernetes.io/component: jenkins-controller
-    app.kubernetes.io/instance: jenkins
-    app.kubernetes.io/managed-by: Helm
-    app.kubernetes.io/name: jenkins
-    meta.helm.sh/release-name: jenkins
-    helm.sh/chart: jenkins-3.0.12
-spec:
-  storageClassName: manual-for-jenkins
-  accessModes:
-    - ReadWriteOnce
-  resources:
-    requests:
-      storage: 1Gi
+    path: /mnt/data-jenkins
